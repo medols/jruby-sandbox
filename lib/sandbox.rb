@@ -64,6 +64,15 @@ module Sandbox
       keep_methods(:Enumerable, ENUMERABLE_METHODS)
       keep_methods(:String, STRING_METHODS)
 
+      Kernel.class_eval do
+        def `(*args)
+          raise NoMethodError, "` is unavailable"
+        end
+        def system(*args)
+          raise NoMethodError, "system is unavailable"
+        end
+      end
+
     end
 
     def activate_fakefs
