@@ -107,9 +107,9 @@ module Sandbox
           #
           #const_set(:Dir,       FakeFS::Dir)
           #const_set(:File,      FakeFS::File)
-          #const_set(:FileUtils, FakeFS::FileUtils)
+          #const_set(:FileTest,  FakeFS::FileTest)
+          const_set(:FileUtils, FakeFS::FileUtils)
           #
-          const_set(:FileTest,  FakeFS::FileTest)
         end
       RUBY
 
