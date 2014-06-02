@@ -102,9 +102,13 @@ module Sandbox
           remove_const(:FileTest)
           remove_const(:FileUtils)
 
-          const_set(:Dir,       FakeFS::Dir)
-          const_set(:File,      FakeFS::File)
-          const_set(:FileUtils, FakeFS::FileUtils)
+          # remove the FakeFS ref, because running the following will run
+          #  `FakeFS::FileTest.eval("File.read '/app/config.ru'")`
+          #
+          #const_set(:Dir,       FakeFS::Dir)
+          #const_set(:File,      FakeFS::File)
+          #const_set(:FileUtils, FakeFS::FileUtils)
+          #
           const_set(:FileTest,  FakeFS::FileTest)
         end
       RUBY
