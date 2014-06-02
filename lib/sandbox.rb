@@ -85,9 +85,14 @@ module Sandbox
       end
 
       import  FakeFS
-      ref     FakeFS::Dir
-      ref     FakeFS::File
-      ref     FakeFS::FileTest
+      # remove the FakeFS ref, because running the following will run
+      #  `FakeFS::FileTest.eval("File.read '/app/config.ru'")`
+      #
+      #ref     FakeFS::Dir
+      #ref     FakeFS::File
+      #ref     FakeFS::FileTest
+      #
+      #
       import  FakeFS::FileUtils #import FileUtils because it is a module
 
       eval <<-RUBY
